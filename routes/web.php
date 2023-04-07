@@ -24,8 +24,6 @@ Route::get('/liste', function () {
     $recettes = Recette::get();
     return view('liste_recettes',["recettes"=>$recettes]);
 })->name('liste');
-// <td><a href="{{ route('modifier', ['id' => $recette->titre]) }}"><button type="button" class="btn btn-warning" id="{{$recette->titre}}">Modifier</button></a></td>
-//   <td><a href="{{ route('supprimer', ['id' => $recette->titre]) }}"><button type="button" class="btn btn-danger" id="{{$recette->titre}}">Supprimer</button></a></td>
 
 Route::get('/recherche', function () {
     return view('resultat_recherche');
