@@ -49,3 +49,29 @@ Route::delete('/recettes/{id}', function ($id) {
         return response()->json(["status" => 0], 400);
     }
 });
+
+Route::put('/recettes/{id}', function (Request $request, $id) {
+    
+    $recettes = Recette::find($id);
+
+    if ($recettes){
+        $recettes->titre = $request->titre ?? $recettes->titre;
+        $recettes->ingredients = $request->ingredients ?? $recettes->ingredients;
+        $ok = $recettes->save();
+        
+        if ($ok){
+            return response()->json(["status" => 1, "message" => "recettes modifié"],200);
+        } 
+        
+        else{
+            return response()->json(["status" => 0, "message" => "Problème lors de la modification"],400);
+        }
+
+    }
+    
+    else{
+        return response()->json(["status" => 0, "message" => "Ce recettes n'existe pas"],404);
+    }
+
+    
+});
