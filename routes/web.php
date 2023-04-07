@@ -17,7 +17,14 @@ Route::get('/', function () {
     return view('accueil');
 });
 
-
 Route::get('/liste', function () {
     return view('liste_recettes');
 })->name('liste');
+
+Route::get('/recherche', function () {
+    return view('resultat_recherche');
+})->name('recherche');
+
+Route::get('/ajout', function () {
+    return view('ajout_recette');
+})->name('ajout');
