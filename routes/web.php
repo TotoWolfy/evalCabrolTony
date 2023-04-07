@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Recette;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +28,6 @@ Route::get('/recherche', function () {
     return view('resultat_recherche');
 })->name('recherche');
 
-Route::get('/ajout', function () {
+Route::get('/ajouter', function () {
     return view('ajout_recette');
-})->name('ajout');
+})->name('ajouter');

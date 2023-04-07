@@ -46,7 +46,7 @@ class="bi bi-envelope-open" viewBox="0 0 16 16">
 ?? '' }}</a>
  </li>
  </ul>
- <form class="d-flex" action="{{ ‘recherche }}">
+ <form class="d-flex" action="{{ 'recherche' }}">
  <input class="form-control me-2" name="search" type="search" placeholder="ingredient ?"
 aria-label="Search">
  <button class="btn btn-outline-success" type="submit">Recherche</button>
