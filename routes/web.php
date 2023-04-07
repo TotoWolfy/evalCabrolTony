@@ -31,3 +31,14 @@ Route::get('/recherche', function () {
 Route::get('/ajouter', function () {
     return view('ajout_recette');
 })->name('ajouter');
+
+Route::post('/ajout', function (Request $request) {
+    $titre = $request->input('titre');
+    $ingredients = $request->input('ingredients');
+    $duree = $request->input('duree');
+    $photo = $request->input('photo');
+    
+DB::table('recettes')->insert(['titre' => $titre,'ingredients' => $ingredients,
+    'duree' => $duree,'photo' => $photo ]);
+return view('confirm_ajout');
+})->name('ajout');
