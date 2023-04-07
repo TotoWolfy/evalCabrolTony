@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Recette;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get(' /api/recettes?search={titre}', function (Request $request, $titre) {
+
+    $recette = Recette::select("titre","ingredients","duree","photo")->where('titre', 'LIKE', '%'.$titre.'%')->get();
+    return response()->json($recette);
 });
